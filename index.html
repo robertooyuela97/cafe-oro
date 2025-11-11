@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Café Oro Honduras - La marca más reconocida de su categoría. Café hondureño de calidad desde 1960. Sabroso y rendidor.">
+    <meta name="keywords" content="Café Oro Honduras, café hondureño, café de calidad, Café Oro, Gabriel Kafati">
+    <title> ☕ Cafe Oro - Sabroso y Rendidor</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+                <a class="navbar-brand" href="#inicio">
+                    <img src="images/logo-cafe-oro.png" alt="Logo Café Oro" class="navbar-logo"> CAFE ORO
+                </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="background: var(--oro-amarillo);">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Quiénes Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#historia">Historia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reconocimientos">Reconocimientos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#compromiso">Compromiso</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#comentarios">Comentarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tienda">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="carrito.html" class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1 data-aos="fade-down">CAFE ORO</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Momentos que valen Oro
+            </p>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="400">
+                Tradición hondureña desde 1960, acompañando cada momento especial con calidad y sabor
+            </p>
+            <a href="#tienda" class="btn btn-oro" data-aos="zoom-in" data-aos-delay="600">
+                Comprar Ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Quiénes Somos</h2>
+            <div class="about-content" data-aos="fade-up" data-aos-delay="200">
+                <p>
+                    Café Oro es una marca de café hondureña fundada en 1960 que se ha convertido en un referente nacional, 
+                    evolucionando desde un negocio familiar a una empresa moderna. Su historia está marcada por la calidad, 
+                    la tradición y una profunda conexión con los consumidores hondureños, reflejada en campañas y 
+                    reconocimientos que la mantienen como una de las marcas más recordadas y consumidas en el país.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia y Evolución -->
+    <section id="historia" class="timeline-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Historia y Evolución</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1933</div>
+                        <h3>Gabriel Kafati S.A.</h3>
+                        <p>Se funda Gabriel Kafati S.A., que se convertiría en el tostador más grande y moderno de Honduras.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1960</div>
+                        <h3>Fundación de Café Oro</h3>
+                        <p>Nace Café Oro como un pequeño negocio familiar, con el compromiso de ofrecer café de calidad a los hondureños.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">Presente</div>
+                        <h3>Evolución y Modernización</h3>
+                        <p>Café Oro se ha modernizado a lo largo de los años, manteniéndose como líder en su categoría con innovación constante.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Reconocimientos -->
+        <section id="reconocimientos" class="section-padding" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">Reconocimientos</h2>
+                
+                <div class="row image-gallery">
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="recognition-image-card">
+                            <img src="images/reconocimiento-summa.jpg" alt="Revista SUMMA reconoce a Gabriel Kafati S.A." class="img-fluid recognition-img">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="recognition-image-card">
+                            <img src="images/reconocimiento-top-mind-1.jpg" alt="#1 Top of Mind - Marca más reconocida" class="img-fluid recognition-img">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12 mb-4" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="recognition-image-card">
+                            <img src="images/reconocimiento-top-mind-premio.jpg" alt="E&N reconoce a Café Oro por ser marca Top of Mind 2023" class="img-fluid recognition-img">
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+    <!-- Compromiso y Futuro -->
+    <section id="compromiso" class="compromiso-section">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--oro-amarillo);" data-aos="fade-up">Compromiso y Futuro</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="compromiso-card">
+                        <div class="compromiso-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Calidad</h3>
+                        <p>Compromiso inquebrantable con la frescura y excelencia del café. Cada grano es seleccionado cuidadosamente para garantizar la mejor experiencia.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="compromiso-card">
+                        <div class="compromiso-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovación</h3>
+                        <p>Renovación constante de imagen y conexión con nuevas audiencias, manteniendo la esencia tradicional que nos caracteriza.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="compromiso-card">
+                        <div class="compromiso-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Sabor</h3>
+                        <p>Café con un sabor inigualable que acompaña momentos especiales, desde el desayuno familiar hasta las reuniones con amigos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+            <section id="comentarios" class="section-padding" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">Comentarios</h2>
+                
+                <div class="row">
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="comment-text">
+                                "El mejor café que he probado en años. Su aroma llena toda la casa y el sabor es increíblemente suave y rendidor. ¡Mi despertar diario favorito!"
+                            </p>
+                            <div class="comment-author">
+                                <i class="fas fa-user-circle"></i>
+                                <span>— Laura P. (Tegucigalpa)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="comment-text">
+                                "Compro el soluble liofilizado para la oficina y es perfecto. Rápido de preparar, pero con el sabor robusto y auténtico del café hondureño. ¡100% recomendado!"
+                            </p>
+                            <div class="comment-author">
+                                <i class="fas fa-user-circle"></i>
+                                <span>— Roberto M. (San Pedro Sula)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="comment-text">
+                                "Es el café de mi infancia. Mantienen la calidad y la tradición de siempre. Cada taza es un recuerdo de familia. ¡Gracias, Café Oro, por ser sabroso y rendidor!"
+                            </p>
+                            <div class="comment-author">
+                                <i class="fas fa-user-circle"></i>
+                                <span>— María G. (La Ceiba)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+    <!-- Tienda Virtual -->
+        <section id="tienda" class="shop-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Tienda Virtual</h2>
+                
+                <div class="row g-4 justify-content-center" id="productContainer"> 
+                    </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3 style="color: var(--oro-amarillo); font-size: 2rem;">
+                    <i class="fas fa-coffee"></i> CAFE ORO
+                </h3>
+                <p class="footer-slogan">Sabroso y rendidor</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p>&copy; 2025 Café Oro Honduras. Todos los derechos reservados.</p>
+                <p style="color: var(--oro-amarillo); margin-top: 1rem;">
+                    <i class="fas fa-map-marker-alt"></i> 100% Catracho
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

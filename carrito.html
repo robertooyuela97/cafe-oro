@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carrito de compras - Café Oro Honduras">
+    <title>Carrito de Compras - Cafe Oro</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="carrito.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-coffee"></i> CAFE ORO
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="background: var(--oro-amarillo);">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-arrow-left"></i> Volver a la tienda
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="carrito.html" class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carrito Section -->
+    <section class="carrito-section">
+        <div class="container">
+            <h1 class="carrito-title">
+                <i class="fas fa-shopping-cart"></i> Mi Carrito de Compras
+            </h1>
+
+            <div class="row g-4">
+                <!-- Productos del Carrito -->
+                <div class="col-lg-8">
+                    <div class="carrito-container">
+                        <div class="carrito-header">
+                            <h3>Productos en el carrito</h3>
+                            <button class="btn-clear-cart" id="clearCartBtn">
+                                <i class="fas fa-trash-alt"></i> Vaciar carrito
+                            </button>
+                        </div>
+                        
+                        <div id="cartItemsContainer">
+                            <!-- Los productos se cargarán aquí dinámicamente -->
+                        </div>
+
+                        <div id="emptyCartMessage" class="empty-cart" style="display: none;">
+                            <i class="fas fa-shopping-basket"></i>
+                            <h3>Tu carrito está vacío</h3>
+                            <p>Agrega productos desde nuestra tienda</p>
+                            <a href="index.html#tienda" class="btn btn-oro">
+                                <i class="fas fa-store"></i> Ir a la tienda
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen y Checkout -->
+                <div class="col-lg-4">
+                    <div class="checkout-container">
+                        <h3 class="checkout-title">Resumen del Pedido</h3>
+                        
+                        <div class="summary-item">
+                            <span>Subtotal:</span>
+                            <span id="subtotalAmount">L. 0.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Envío:</span>
+                            <span id="shippingAmount">L. 50.00</span>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-item total">
+                            <span>Total:</span>
+                            <span id="totalAmount">L. 0.00</span>
+                        </div>
+
+                        <button class="btn-checkout" id="checkoutBtn">
+                            <i class="fas fa-lock"></i> Proceder al Pago
+                        </button>
+
+                        <div class="security-badges">
+                            <i class="fas fa-shield-alt"></i> Compra 100% Segura
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Checkout -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-credit-card"></i> Finalizar Compra
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="checkoutForm">
+                        <!-- Paso 1: Información Personal -->
+                        <div class="checkout-step active" id="step1">
+                            <h4 class="step-title">
+                                <span class="step-number">1</span>
+                                Información Personal
+                            </h4>
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Nombre Completo *</label>
+                                    <input type="text" class="form-control" id="fullName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Teléfono *</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="+504 0000-0000" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Correo Electrónico *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">DNI / Identidad</label>
+                                    <input type="text" class="form-control" id="dni" placeholder="0000-0000-00000">
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button type="button" class="btn-next" onclick="nextStep(2)">
+                                    Siguiente <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2: Dirección de Envío -->
+                        <div class="checkout-step" id="step2">
+                            <h4 class="step-title">
+                                <span class="step-number">2</span>
+                                Dirección de Envío
+                            </h4>
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Departamento *</label>
+                                    <select class="form-select" id="department" required>
+                                        <option value="">Seleccionar...</option>
+                                        <option value="francisco-morazan">Francisco Morazán</option>
+                                        <option value="cortes">Cortés</option>
+                                        <option value="atlantida">Atlántida</option>
+                                        <option value="choluteca">Choluteca</option>
+                                        <option value="colon">Colón</option>
+                                        <option value="comayagua">Comayagua</option>
+                                        <option value="copan">Copán</option>
+                                        <option value="el-paraiso">El Paraíso</option>
+                                        <option value="gracias-a-dios">Gracias a Dios</option>
+                                        <option value="intibuca">Intibucá</option>
+                                        <option value="islas-de-la-bahia">Islas de la Bahía</option>
+                                        <option value="la-paz">La Paz</option>
+                                        <option value="lempira">Lempira</option>
+                                        <option value="ocotepeque">Ocotepeque</option>
+                                        <option value="olancho">Olancho</option>
+                                        <option value="santa-barbara">Santa Bárbara</option>
+                                        <option value="valle">Valle</option>
+                                        <option value="yoro">Yoro</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Ciudad / Municipio *</label>
+                                    <input type="text" class="form-control" id="city" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Dirección Completa *</label>
+                                    <textarea class="form-control" id="address" rows="3" 
+                                        placeholder="Ej: Colonia Palmira, Calle Principal, Casa #123" required></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Código Postal</label>
+                                    <input type="text" class="form-control" id="zipCode">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Punto de Referencia</label>
+                                    <input type="text" class="form-control" id="reference" 
+                                        placeholder="Ej: Frente al parque central">
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button type="button" class="btn-prev" onclick="prevStep(1)">
+                                    <i class="fas fa-arrow-left"></i> Anterior
+                                </button>
+                                <button type="button" class="btn-next" onclick="nextStep(3)">
+                                    Siguiente <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3: Método de Pago -->
+                        <div class="checkout-step" id="step3">
+                            <h4 class="step-title">
+                                <span class="step-number">3</span>
+                                Método de Pago
+                            </h4>
+                            
+                            <div class="payment-methods">
+                                <div class="payment-method">
+                                    <input type="radio" name="paymentMethod" id="creditCard" value="credit" checked>
+                                    <label for="creditCard">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Tarjeta de Crédito/Débito</span>
+                                    </label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="radio" name="paymentMethod" id="cashOnDelivery" value="cash">
+                                    <label for="cashOnDelivery">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        <span>Pago Contra Entrega</span>
+                                    </label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="radio" name="paymentMethod" id="bankTransfer" value="transfer">
+                                    <label for="bankTransfer">
+                                        <i class="fas fa-university"></i>
+                                        <span>Transferencia Bancaria</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Información de Tarjeta -->
+                            <div class="card-info" id="cardInfo">
+                                <h5 class="mt-4 mb-3">Información de la Tarjeta</h5>
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label class="form-label">Número de Tarjeta *</label>
+                                        <input type="text" class="form-control" id="cardNumber" 
+                                            placeholder="0000 0000 0000 0000" maxlength="19">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Nombre en la Tarjeta *</label>
+                                        <input type="text" class="form-control" id="cardName" 
+                                            placeholder="Como aparece en la tarjeta">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Fecha de Expiración *</label>
+                                        <input type="text" class="form-control" id="cardExpiry" 
+                                            placeholder="MM/AA" maxlength="5">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">CVV *</label>
+                                        <input type="text" class="form-control" id="cardCVV" 
+                                            placeholder="123" maxlength="4">
+                                    </div>
+                                </div>
+
+                                <div class="accepted-cards">
+                                    <span>Aceptamos:</span>
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-amex"></i>
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button type="button" class="btn-prev" onclick="prevStep(2)">
+                                    <i class="fas fa-arrow-left"></i> Anterior
+                                </button>
+                                <button type="button" class="btn-next" onclick="nextStep(4)">
+                                    Siguiente <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Paso 4: Confirmación -->
+                        <div class="checkout-step" id="step4">
+                            <h4 class="step-title">
+                                <span class="step-number">4</span>
+                                Confirmar Pedido
+                            </h4>
+                            
+                            <div class="confirmation-summary">
+                                <div class="summary-section">
+                                    <h5><i class="fas fa-user"></i> Información Personal</h5>
+                                    <div id="confirmPersonalInfo"></div>
+                                </div>
+
+                                <div class="summary-section">
+                                    <h5><i class="fas fa-map-marker-alt"></i> Dirección de Envío</h5>
+                                    <div id="confirmAddressInfo"></div>
+                                </div>
+
+                                <div class="summary-section">
+                                    <h5><i class="fas fa-credit-card"></i> Método de Pago</h5>
+                                    <div id="confirmPaymentInfo"></div>
+                                </div>
+
+                                <div class="summary-section">
+                                    <h5><i class="fas fa-shopping-bag"></i> Productos</h5>
+                                    <div id="confirmProductsInfo"></div>
+                                </div>
+
+                                <div class="summary-section total-section">
+                                    <h5>Total a Pagar</h5>
+                                    <div class="total-price" id="confirmTotal">L. 0.00</div>
+                                </div>
+                            </div>
+
+                            <div class="terms-acceptance">
+                                <input type="checkbox" id="acceptTerms" required>
+                                <label for="acceptTerms">
+                                    Acepto los <a href="#" target="_blank">términos y condiciones</a> 
+                                    y la <a href="#" target="_blank">política de privacidad</a>
+                                </label>
+                            </div>
+
+                            <div class="step-actions">
+                                <button type="button" class="btn-prev" onclick="prevStep(3)">
+                                    <i class="fas fa-arrow-left"></i> Anterior
+                                </button>
+                                <button type="submit" class="btn-complete-order">
+                                    <i class="fas fa-check-circle"></i> Completar Pedido
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content success-modal">
+                <div class="modal-body text-center">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>¡Pedido Realizado con Éxito!</h3>
+                    <p>Tu pedido ha sido procesado correctamente.</p>
+                    <p class="order-number">Número de pedido: <strong id="orderNumber"></strong></p>
+                    <p>Recibirás un correo de confirmación en breve.</p>
+                    <a href="index.html" class="btn btn-oro">
+                        <i class="fas fa-home"></i> Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="carrito.js"></script>
+</body>
+</html>

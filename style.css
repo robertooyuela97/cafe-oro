@@ -1,0 +1,698 @@
+/* ==========================================
+   CAFÉ ORO - ESTILOS PRINCIPALES
+   ========================================== */
+
+/* Variables de colores */
+:root {
+    --oro-amarillo: #FFD100;
+    --oro-rojo: #C8102E;
+    --tierra: #8B4513;
+    --beige: #F5E6D3;
+    --oscuro: #2C1810;
+}
+
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: var(--beige);
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+    background: linear-gradient(135deg, var(--oro-rojo) 0%, var(--tierra) 100%);
+    padding: 1rem 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--oro-amarillo) !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    /* Ajuste del navbar-brand para alinear todo (Ya estaba en el CSS anterior) */
+    display: flex; 
+    align-items: center; 
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    margin: 0 1rem;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--oro-amarillo) !important;
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--oro-amarillo);
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 1.5rem;
+    color: var(--oro-amarillo);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.cart-icon:hover {
+    transform: scale(1.2);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--oro-amarillo);
+    color: var(--oro-rojo);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* ==========================================
+   ESTILOS AGREGADOS PARA EL LOGO
+   ========================================== */
+.navbar-logo {
+    height: 40px; /* Ajusta la altura del logo */
+    margin-right: 10px; /* Espacio entre el logo y el texto "CAFE ORO" */
+    vertical-align: middle; /* Ayuda a alinear la imagen con el texto adyacente */
+    transform: translateY(-2px); /* Pequeño ajuste vertical para una alineación perfecta */
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero {
+    height: 100vh;
+    /* CAMBIO: La URL de la imagen se actualiza a tu nueva portada */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), /* Degradado oscuro para mejor contraste */
+                url('images/portada-principal.jpg') center/cover;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-top: 70px; /* Mantiene el espacio debajo del navbar fijo */
+    overflow: hidden;
+
+    /* Estilos adicionales que ayudan a mantener el efecto: */
+    background-attachment: fixed; /* Si quieres el efecto Parallax */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+    animation: fadeInDown 1s;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--oro-amarillo);
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 1.5s;
+}
+
+.btn-oro {
+    background: var(--oro-amarillo);
+    color: var(--oro-rojo);
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 20px rgba(255, 209, 0, 0.3);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-oro:hover {
+    background: #FFC400;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(255, 209, 0, 0.5);
+    color: var(--oro-rojo);
+}
+
+/* ==========================================
+   SECCIONES GENERALES
+   ========================================= */
+section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--oro-rojo);
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--oro-amarillo);
+}
+
+/* ==========================================
+   QUIÉNES SOMOS
+   ========================================= */
+.about-section {
+    background: white;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--oscuro);
+    text-align: justify;
+}
+
+/* ==========================================
+   TIMELINE - HISTORIA
+   ========================================= */
+.timeline-section {
+    background: var(--beige);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: var(--oro-amarillo);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.timeline-content {
+    width: 45%;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: auto;
+}
+
+.timeline-year {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--oro-rojo);
+    margin-bottom: 1rem;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: var(--oro-amarillo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--oro-rojo);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ==========================================
+   SECCIÓN DE RECONOCIMIENTOS (Galería de Imágenes)
+   ========================================= */
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    /* CENTRADO VERTICAL: Asegura que todas las columnas de la fila compartan la misma altura */
+    align-items: stretch; 
+    flex-wrap: wrap;
+}
+
+/* NUEVO: Asegura que la columna sea un contenedor flex para que la tarjeta use el 100% de altura */
+.col-lg-4, .col-md-6, .col-sm-12 {
+    display: flex; 
+}
+
+.recognition-image-card {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    height: 100%;
+    width: 100%; /* Ocupa el 100% del ancho de la columna */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* CENTRADO VERTICAL/HORIZONTAL: Centra la imagen dentro de la tarjeta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recognition-image-card:hover {
+    transform: scale(1.03); /* Ligeramente más grande al pasar el mouse */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    border: 3px solid var(--oro-amarillo); /* Borde dorado al hacer hover */
+}
+
+.recognition-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Borde interno de la imagen */
+    display: block;
+}
+
+/* Adaptación para pantallas medianas (col-md-6) */
+@media (max-width: 991px) {
+    .recognition-image-card {
+        max-width: 400px; /* Limita el ancho de la imagen en tabletas */
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================
+   COMPROMISO Y FUTURO
+   ========================================= */
+.compromiso-section {
+    background: linear-gradient(135deg, var(--oro-rojo), var(--tierra));
+    color: white;
+}
+
+.compromiso-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s;
+    border: 2px solid rgba(255,255,255,0.2);
+    height: 100%;
+}
+
+.compromiso-card:hover {
+    transform: translateY(-15px);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.compromiso-icon {
+    font-size: 4rem;
+    color: var(--oro-amarillo);
+    margin-bottom: 1.5rem;
+}
+
+.compromiso-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--oro-amarillo);
+}
+
+.compromiso-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   SECCIÓN DE COMENTARIOS / TESTIMONIOS
+   ========================================= */
+#comentarios {
+    background-color: var(--beige); /* Fondo beige para destacar */
+}
+
+.testimonial-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 3px solid var(--oro-amarillo);
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+
+.stars {
+    color: var(--oro-amarillo);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.comment-text {
+    font-style: italic;
+    color: var(--oscuro);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.comment-author {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--oro-rojo);
+}
+
+.comment-author i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--tierra);
+}
+
+
+/* ==========================================
+   TIENDA VIRTUAL
+   ========================================= */
+.shop-section {
+    background: white;
+}
+
+.product-list {
+    display: flex; /* Activa Flexbox en el contenedor */
+    justify-content: center; /* Centra los elementos hijos horizontalmente */
+    flex-wrap: wrap; /* Asegura que los elementos salten de línea en pantallas pequeñas */
+}
+
+.product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.product-image {
+    height: 250px;
+    background: linear-gradient(135deg, var(--beige), var(--oro-amarillo));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ocultar el ícono cuando hay imagen */
+.product-image i {
+    display: none;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.1);
+}
+
+/* Si quieres mantener un efecto de shimmer sobre la imagen */
+.product-image::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+}
+
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--oscuro);
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    color: var(--oro-rojo);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.btn-add-cart {
+    width: 100%;
+    background: var(--oro-rojo);
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btn-add-cart:hover {
+    background: var(--tierra);
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================= */
+footer {
+    background: var(--oscuro);
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.social-icons {
+    margin: 2rem 0;
+}
+
+.social-icon {
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    background: var(--oro-amarillo);
+    color: var(--oro-rojo);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) rotate(360deg);
+    background: var(--oro-rojo);
+    color: var(--oro-amarillo);
+}
+
+.footer-slogan {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--oro-amarillo);
+    margin: 1rem 0;
+}
+
+/* ==========================================
+   ANIMACIONES
+   ========================================= */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 80px !important;
+    }
+    
+    .timeline-icon {
+        left: 30px;
+    }
+}

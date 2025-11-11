@@ -1,0 +1,123 @@
+/* ==========================================
+   CAFÉ ORO - ESTILOS DEL CARRITO
+   ========================================== */
+
+.carrito-section {
+    padding: 8rem 0 4rem;
+    background: var(--beige);
+    min-height: 100vh;
+}
+
+.carrito-title {
+    font-size: 2.5rem;
+    color: var(--oro-rojo);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* ==========================================
+   CONTENEDOR DEL CARRITO
+   ========================================== */
+.carrito-container {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.carrito-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--oro-amarillo);
+}
+
+.carrito-header h3 {
+    color: var(--oro-rojo);
+    font-weight: 600;
+    margin: 0;
+}
+
+.btn-clear-cart {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btn-clear-cart:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   ITEMS DEL CARRITO
+   ========================================== */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s;
+}
+
+.cart-item:hover {
+    background: #f9f9f9;
+}
+
+.cart-item-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--beige), var(--oro-amarillo));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--oro-rojo);
+    margin-right: 1.5rem;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos para imágenes en el carrito */
+.cart-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cart-item-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--beige), var(--oro-amarillo));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--oro-rojo);
+    margin-right: 1.5rem;
+    overflow: hidden;
+}
+
+/* Si no hay imagen, centrar el ícono */
+.cart-item-icon i {
+    font-size: 2.5rem;
+}
