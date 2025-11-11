@@ -199,6 +199,42 @@ body {
 }
 
 /* ==========================================
+   ELEMENTOS ADICIONALES EN HERO
+   ========================================== */
+.views-bubble {
+    background: rgba(255, 209, 0, 0.9); /* Amarillo oro semitransparente */
+    color: var(--oro-rojo);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 2.5rem; /* Espacio encima de la burbuja */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    animation: bounceIn 1s ease-out; /* Animación de entrada */
+    position: relative;
+    z-index: 3; 
+}
+
+.views-bubble .fas {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+    font-size: 1.3rem;
+}
+
+/* Responsive para la burbuja de vistas */
+@media (max-width: 768px) {
+    .views-bubble {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+        margin-top: 2rem;
+    }
+    .views-bubble .fas {
+        font-size: 1.1rem;
+    }
+}
+
+/* ==========================================
    SECCIONES GENERALES
    ========================================= */
 section {
@@ -632,6 +668,25 @@ footer {
         opacity: 0;
     }
     to {
+        opacity: 1;
+    }
+}
+
+/* Animación para que la burbuja aparezca con un "rebote" */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
         opacity: 1;
     }
 }
