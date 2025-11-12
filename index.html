@@ -59,7 +59,6 @@
                 Comprar Ahora
             </a>
 
-            <!-- Contador de visitas dinámico -->
             <div class="views-bubble" data-aos="zoom-in" data-aos-delay="700">
                 <i class="fas fa-eye"></i> 
                 <span id="contador">0</span> Vistas
@@ -232,35 +231,46 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js"></script> 
 
-<script>
-// Contador de visitas con CountAPI
-// Nuevo formato: /hit/<namespace>/<key>
-// Usaremos "cafeoro" como namespace y "homepage_views" como key
-const namespace = 'cafeoro'; 
-const key = 'homepage_views'; 
+    <script>
+        // Inicializar AOS
+        // Si ya lo inicializaste en script.js, puedes eliminar esta línea
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
 
-fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-    .then(res => {
-        if (!res.ok) {
-            throw new Error('Error de red o de la API');
-        }
-        return res.json();
-    })
-    .then(res => {
-        // Muestra el valor de las vistas
-        document.getElementById('contador').textContent = res.value.toLocaleString('es-HN');
-    })
-    .catch(err => {
-        console.error('Error al cargar contador:', err);
-        // Si falla, establece un valor predeterminado o un mensaje de error
-        document.getElementById('contador').textContent = 'Error'; 
-    });
-</script>
+        // Contador de visitas con CountAPI
+        // Nuevo formato: /hit/<namespace>/<key>
+        // Usamos un namespace simple 'cafeoro' y el key 'homepage_views' para evitar conflictos.
+        const namespace = 'cafeoro'; 
+        const key = 'homepage_views'; 
 
+        fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+            .then(res => {
+                if (!res.ok) {
+                    // Si la respuesta HTTP no es exitosa (ej: 404 o 500), lanza un error
+                    throw new Error('Error de red o de la API');
+                }
+                return res.json();
+            })
+            .then(res => {
+                // Muestra el valor de las vistas
+                const contadorElement = document.getElementById('contador');
+                if (contadorElement) {
+                    // Usa toLocaleString para separar miles (ej: 1,500)
+                    contadorElement.textContent = res.value.toLocaleString('es-HN'); 
+                }
+            })
+            .catch(err => {
+                console.error('Error al cargar contador:', err);
+                // Si falla (como cuando salía "ErrorVistas" en tu captura)
+                const contadorElement = document.getElementById('contador');
+                if (contadorElement) {
+                    contadorElement.textContent = 'N/A'; // Muestra N/A para indicar fallo
+                }
+            });
+    </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="es">
-<head>
