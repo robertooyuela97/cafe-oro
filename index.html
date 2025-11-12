@@ -234,18 +234,19 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
 
-    <!-- Script del contador de visitas -->
     <script>
-      fetch('https://api.countapi.xyz/hit/cafeoro-hn.netlify.app/visitas')
+    // Contador de visitas con CountAPI (namespace sin puntos)
+    fetch('https://api.countapi.xyz/hit/cafeoro-hn-netlify-app/visitas')
         .then(res => res.json())
         .then(res => {
-          document.getElementById('contador').textContent = res.value.toLocaleString();
+        document.getElementById('contador').textContent = res.value.toLocaleString();
         })
         .catch(err => {
-          console.error('Error al cargar contador:', err);
-          document.getElementById('contador').textContent = 'N/A';
+        console.error('Error al cargar contador:', err);
+        document.getElementById('contador').textContent = 'N/A';
         });
     </script>
+
 </body>
 </html>
 <!DOCTYPE html>
